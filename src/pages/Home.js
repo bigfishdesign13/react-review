@@ -57,7 +57,6 @@ const Home = () => {
 
   // Show alert if there are form errors
   useEffect(() => {
-    console.log(submitted);
     submitted &&
       (isInvalid.firstName || isInvalid.lastName
         ? setShowAlert(true)
