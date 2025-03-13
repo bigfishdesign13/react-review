@@ -36,6 +36,9 @@ const Layout = () => {
             <li>
               <Link to="/form">Form</Link>
             </li>
+            <li>
+              <Link to="/interview">Interview</Link>
+            </li>
           </ul>
         </nav>
       </StyledNav>
