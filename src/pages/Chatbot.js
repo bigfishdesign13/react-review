@@ -96,49 +96,55 @@ function App() {
   }, [messageList]);
 
   return (
-    <div className={styles.containerStyles}>
-      <div
-        style={{
-          overflow: "auto",
-          display: "flex",
-          flexDirection: "column-reverse",
-        }}
-      >
-        <ul id="readout" className={styles.readoutContainerStyles}>
-          {messageList.map((message, i) => {
-            const finalChatRowStyles = message.isUser
-              ? `${styles.chatRowStyles} ${styles.chatRowUserStyles}`
-              : styles.chatRowStyles;
-            return (
-              <li key={i} className={finalChatRowStyles}>
-                <div className={styles.chatContainerStyles}>
-                  {message.isText ? (
-                    <div className={styles.chatTextStyles}>
-                      {message.content}
-                    </div>
-                  ) : (
-                    <ul className={styles.inventoryItemsList}>
-                      {inventoryElements}
-                    </ul>
-                  )}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+    <>
+      <div className={styles.containerStyles}>
+        <div
+          style={{
+            overflow: "auto",
+            display: "flex",
+            flexDirection: "column-reverse",
+          }}
+        >
+          <ul id="readout" className={styles.readoutContainerStyles}>
+            {messageList.map((message, i) => {
+              const finalChatRowStyles = message.isUser
+                ? `${styles.chatRowStyles} ${styles.chatRowUserStyles}`
+                : styles.chatRowStyles;
+              return (
+                <li key={i} className={finalChatRowStyles}>
+                  <div className={styles.chatContainerStyles}>
+                    {message.isText ? (
+                      <div className={styles.chatTextStyles}>
+                        {message.content}
+                      </div>
+                    ) : (
+                      <ul className={styles.inventoryItemsList}>
+                        {inventoryElements}
+                      </ul>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <form className={styles.inputContainerStyles} onSubmit={onSubmit}>
+          <input
+            autoFocus
+            type="text"
+            ref={inputRef}
+            style={{ backgroundColor: "#191919", paddingLeft: "8px" }}
+          />
+          <button style={{ cursor: "pointer" }} type="submit">
+            click me!
+          </button>
+        </form>
       </div>
-      <form className={styles.inputContainerStyles} onSubmit={onSubmit}>
-        <input
-          autoFocus
-          type="text"
-          ref={inputRef}
-          style={{ backgroundColor: "#191919", paddingLeft: "8px" }}
-        />
-        <button style={{ cursor: "pointer" }} type="submit">
-          click me!
-        </button>
-      </form>
-    </div>
+      <p style={{ margin: "1rem auto 0", maxWidth: "480px" }}>
+        For ease of use during testing, the prompt validation is not case
+        sensitive and is checking for "hello" and "show."
+      </p>
+    </>
   );
 }
 
