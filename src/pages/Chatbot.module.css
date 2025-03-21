@@ -1,0 +1,96 @@
+@keyframes chatText {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:root {
+  --spacing-default: 0.5rem;
+  --border-radius-default: 0.25rem;
+}
+
+.containerStyles {
+  background-color: #121212;
+  border: 1px solid #ccc;
+  display: grid;
+  grid-template-rows: 11fr 1fr;
+  height: 640px;
+  margin: auto;
+  max-width: 480px;
+  width: 100%;
+}
+.readoutContainerStyles {
+  overflow: auto;
+  padding: 1rem;
+}
+.inputContainerStyles {
+  border-top: 1px solid #ccc;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+.chatRowStyles {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  margin-bottom: 8px;
+}
+.chatRowUserStyles {
+  justify-content: end;
+  div {
+    animation-duration: 200ms;
+    animation-name: chatText;
+    animation-timing-function: ease-in;
+    background-color: rgb(27, 36, 40);
+    border-radius: var(--border-radius-default);
+    opacity: 1;
+  }
+}
+.chatContainerStyles {
+  max-width: 75%;
+}
+.chatTextStyles {
+  animation-duration: 200ms;
+  animation-name: chatText;
+  animation-timing-function: ease-in;
+  background-color: #292929;
+  border-radius: var(--border-radius-default);
+  opacity: 1;
+  padding: var(--spacing-default);
+  transform: scale(1);
+}
+
+.inventoryItemsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-default);
+}
+.inventoryItem {
+  border: 1px solid #444;
+  border-radius: var(--border-radius-default);
+  display: grid;
+  gap: var(--spacing-default);
+  grid-template-columns: 3fr 1fr;
+  .text {
+    padding: var(--spacing-default);
+  }
+  .name {
+    font-weight: bold;
+  }
+  .desc {
+    font-size: 14px;
+  }
+  .btn {
+    background-color: #363636;
+    cursor: pointer;
+    transition: background-color 250ms;
+    &:hover {
+      background-color: #262626;
+    }
+  }
+}

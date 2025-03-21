@@ -4,7 +4,7 @@ import DataProvider from "./utils/DataProvider";
 import Layout from "pages/Layout";
 import Home from "pages/Home";
 import Form from "pages/Form";
-import Interview from "pages/Interview";
+import Chatbot from "pages/Chatbot";
 
 function App({ Component, pageProps }) {
   return (
@@ -15,7 +15,7 @@ function App({ Component, pageProps }) {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="form" element={<Form />} />
-              <Route path="interview" element={<Interview />} />
+              <Route path="chatbot" element={<Chatbot />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { Outlet, Link } from "react-router-dom";
 
@@ -25,23 +25,27 @@ const StyledNav = styled.div`
 `;
 
 const Layout = () => {
+  const location = useLocation();
+
   return (
     <>
-      <StyledNav>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/form">Form</Link>
-            </li>
-            <li>
-              <Link to="/interview">Interview</Link>
-            </li>
-          </ul>
-        </nav>
-      </StyledNav>
+      {location.pathname !== "/chatbot" && (
+        <StyledNav>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/form">Form</Link>
+              </li>
+              <li>
+                <Link to="/chatbot">Chatbot</Link>
+              </li>
+            </ul>
+          </nav>
+        </StyledNav>
+      )}
 
       <Outlet />
     </>
